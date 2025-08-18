@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="API Suite" parallel="false">
+
+    <test name="Signup">
+        <parameter name="cucumber.filter.tags" value="@signup"/>
+        <classes>
+            <class name="runner.TestNgRunner"/>
+        </classes>
+    </test>
+
+    <test name="Login">
+        <parameter name="cucumber.filter.tags" value="@login"/>
+        <classes>
+            <class name="runner.TestNgRunner"/>
+        </classes>
+    </test>
+    <test name="Books">
+        <parameter name="cucumber.filter.tags" value="@books"/>
+        <classes>
+            <class name="runner.TestNgRunner"/>
+        </classes>
+    </test>
+
+</suite>
