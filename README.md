@@ -104,19 +104,50 @@ py -m uvicorn main:app --reload
 ```
 
 Once running, open your browser and go to:  
-[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
-
-This will open the **Swagger UI**, where you can interactively test the APIs.
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) to view the **Swagger UI**
 
 ---
 
 ## 🧱 Project Structure
 
 ```
-src/main/java      -> Utility classes and framework core  
-src/test/java      -> Test classes for Health, User, Book  
-config.properties  -> Base URL and authentication tokens  
-test-output        -> TestNG and ExtentReports output  
+📁 Project Structure
+
+.
+├── pom.xml                         # Maven build configuration
+├── testng.xml                      # TestNG suite configuration
+
+├── src
+│   ├── main
+│   │   └── java
+│   │       ├── config              # Configuration helpers and constants
+│   │       ├── pojo                # Request/response POJOs for APIs
+│   │       └── utils               # Utility classes (e.g., token manager, logger)
+│
+│   └── test
+│       ├── java
+│       │   ├── features            # Cucumber feature files (if used)
+│       │   ├── hooks               # Setup/teardown logic using hooks
+│       │   ├── listeners           # Custom TestNG listeners
+│       │   ├── runner              # Test runners for TestNG/Cucumber
+│       │   └── steps               # Step definitions for Cucumber scenarios
+│       └── resources               # config.properties and other test resources
+
+├── target                          # Maven build output
+│   ├── bookstore-api-1.0-SNAPSHOT.jar  # Built JAR file
+│   ├── classes/                    # Compiled main classes
+│   │   ├── config
+│   │   ├── pojo
+│   │   └── utils
+│   ├── test-classes/              # Compiled test classes
+│   ├── surefire-reports/          # TestNG default reports (HTML, XML, etc.)
+│   │   ├── emailable-report.html
+│   │   ├── index.html
+│   │   └── testng-results.xml
+│   ├── extent-report.html         # Rich HTML report from ExtentReports
+│   ├── cucumber-reports.html      # Cucumber HTML report (if used)
+│   └── ...                        # Other generated folders (annotations, archiver, etc.)
+ 
 ```
 
 ---
@@ -152,5 +183,11 @@ mvn clean test
 
 4. **Open the generated report:**
 
-```
+
 test-output/Extent
+
+## 📊 Sample Report
+<img width="1419" height="805" alt="Screenshot 2025-08-19 at 5 08 46 PM" src="https://github.com/user-attachments/assets/68647435-a3ab-4c6a-aced-6ca450702af4" />
+
+<img width="1375" height="695" alt="Screenshot 2025-08-19 at 5 09 38 PM" src="https://github.com/user-attachments/assets/d7315f9e-e1c2-4402-b61f-a42e6ad422d2" />
+
