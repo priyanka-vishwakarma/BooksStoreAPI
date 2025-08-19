@@ -49,16 +49,64 @@ Authentication tokens from login responses are dynamically reused for secured AP
 
 ---
 
-## ⚙️ CI/CD Pipeline
+## 🔄 CI/CD Pipeline
 
-**Triggered on every push or pull request to `main`**
+This project integrates seamlessly with **GitHub Actions** for continuous testing and reporting.
 
-### Steps:
+### Trigger
+
+- On every **push** or **pull request** to the `main` branch
+
+### Steps
 
 1. Checkout code  
 2. Setup Java 17  
-3. Execute tests via Maven  
-4. Upload reports: TestNG Surefire and ExtentReports  
+3. Start the FastAPI Bookstore API (see instructions below)  
+4. Execute tests via Maven  
+5. Upload reports: TestNG Surefire and ExtentReports  
+
+---
+
+### 📦 Bookstore API – Setup & Run Instructions
+
+This project is a simple Bookstore API built with **FastAPI**. It allows user authentication (signup/login) and book management (create, update, delete, list books) with JWT-based security.
+
+#### Prerequisites
+
+- **Windows** with Python 3.7+ installed (tested with Python 3.13)  
+- `pip` (comes with Python installation)  
+- Command Prompt or PowerShell  
+
+#### Setup Instructions
+
+1. Navigate to the project folder:  
+   Example:  
+   ```bash
+   cd "\bookstore 1\bookstore\bookstore"
+   ```
+
+2. Create a virtual environment (optional but recommended):  
+   ```bash
+   py -m venv venv
+   venv\Scripts\activate
+   ```
+
+3. Install dependencies:  
+   ```bash
+   py -m pip install -r requirements.txt
+   ```
+
+#### Running the Application
+
+Start the FastAPI app:
+```bash
+py -m uvicorn main:app --reload
+```
+
+Once running, open your browser and go to:  
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
+
+This will open the **Swagger UI**, where you can interactively test the APIs.
 
 ---
 
@@ -105,30 +153,4 @@ mvn clean test
 4. **Open the generated report:**
 
 ```
-test-output/ExtentReport.html
-```
-
----
-
-## 📊 Reporting
-
-- Shows test name, status (pass/fail/skip), request/response details, and assertions  
-- HTML reports are easy to navigate and include all test results  
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository  
-2. Create a feature branch:  
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-3. Commit and push your changes  
-4. Submit a pull request  
-
----
-
-## ✍️ Author
-
-**Priyanka Vishwakarma**
+test-output/Extent
